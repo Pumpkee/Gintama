@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #724c4c;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 50px;
+}
+
+#menu {
+  position: fixed;
+  top: 0;
+  left: -200px; /* 選單初始位置在左邊隱藏 */
+  width: 200px;
+  height: 100%;
+  background-color: #000000;
+  color: #fff;
+  transition: left 0.3s ease; /* 添加選單拉出的動畫效果 */
+}
+
+#menu.open {
+  left: 0; /* 當選單打開時，將左邊位置調整到0 */
+}
+
+#toggleMenu {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  padding: 10px;
+  background-color: #444;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.gif-image {
+    width: 200px; /* 設置寬度 */
+    height: 200px; /* 設置高度 */
+}
+
+#menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+#menu ul li {
+  padding: 10px;
+}
+
+#menu ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#dialogue {
+    border: 2px solid black;
+    padding: 10px;
+    width: 300px;
+    margin: 0 auto;
+    height: 200px;
+    overflow-y: scroll;
+    color: #fff;
+}
+
+.replyoption {
+    margin-top: 10px;
+    color: blue; /* 選項文字顏色 */
+}
+
+#game {
+  margin-left: 200px; /* 讓遊戲內容區域空出選單的寬度 */
+  padding: 20px;
+}
