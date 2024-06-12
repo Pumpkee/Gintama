@@ -1,32 +1,27 @@
-const dialogueContainer = document.getElementById('dialogue');
-const optionsContainer = document.getElementById('options');
-
-
-//選單
-document.addEventListener('DOMContentLoaded', function() {
-  var menu = document.getElementById('menu');
-  var toggleMenu = document.getElementById('toggleMenu');
-  var closeMenuButton = document.getElementById('closeMenu'); // 新增的關閉選單按鈕
-
-  toggleMenu.addEventListener('click', function() {
-    menu.classList.toggle('open'); // 切換選單的打開/關閉狀態
-  });
-    closeMenuButton.addEventListener('click', function() {
-    menu.classList.remove('open'); // 關閉選單
-  });
-});
 
 //顯示故事
 function showStory(storyNode) {
+    saveData.key = storyNode.key
+    displayAction(storyNode.action);
     displayDialogue(storyNode.character,storyNode.message);
     displayOptions(storyNode.options);
 }
 
+//畫面動作
+function displayAction(action){
+    //清除已有對話
+    if(action == 'cleanText') 
+        dialogueContainer.innerHTML ='';
+}
+
 //對話框內容更新
 function displayDialogue(character, message) {
-    if (character == '') {
+    if (character == '') 
+    {
         dialogueContainer.innerHTML += `<p>${message}</p>`;
-    } else {
+    } 
+    else 
+    {
         dialogueContainer.innerHTML += `<p><strong>${character.name}:</strong> ${message}</p>`;
     }
     // 滾動至最底部
@@ -59,6 +54,20 @@ function displayOptions(options) {
 }
 
 
+//存檔功能
+const saveDataKey = 'saveData';
+function saveGame() {
+    localStorage.setItem(saveDataKey, JSON.stringify(saveData));
+    console.log('存檔成功');
+}
 
-// 遊戲開始，NPC說話，並顯示選項
-showStory(gameData.start);
+// 加载存档数据
+function loadGame() {
+    savedGameData = localStorage.getItem(saveDataKey);
+    if (savedGameData) {
+        saveData = JSON.parse(savedGameData);
+        console.log('讀檔成功:', saveData);
+    } else {
+        console.log('沒有讀檔數據');
+    }
+}

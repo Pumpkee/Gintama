@@ -55,9 +55,9 @@ body {
 #dialogue {
     border: 2px solid black;
     padding: 10px;
-    width: 300px;
+    width: 60vw;/*畫面大小的百分比*/
     margin: 0 auto;
-    height: 200px;
+    height: 60vh;/*畫面大小的百分比*/
     overflow-y: scroll;
     color: #fff;
 }
